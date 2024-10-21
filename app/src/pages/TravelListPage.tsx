@@ -2,7 +2,7 @@ import TravelList from "../components/TravelList";
 
 const TravelListPage = () => {
     return ( 
-        <div className="container mx-auto">
+        <div className="">
             <h1 className="text-4xl text-red-400 mb-10">Share your travel</h1>
 
             <TravelList />
