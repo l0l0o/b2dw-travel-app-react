@@ -10,7 +10,11 @@ const TravelList = () => {
     }, [])
 
     const fetchTravels = async () => {
+<<<<<<< HEAD
         const response = await fetch("http://localhost:5173/travels.json")
+=======
+        const response = await fetch("http://localhost:8000/travels")
+>>>>>>> 656c6e6 (feat: api)
         const data = await response.json()
         setTravelList(data)
     }
