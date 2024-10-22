@@ -11,7 +11,6 @@ const TravelSinglePage = () => {
     }, [])
 
     const fetchTravels = async () => {
-
         const response = await fetch(`http://localhost:8000/travels/${id}`, {
             method: "GET", // GET, POST, PUT, DELETE...
             headers: {
