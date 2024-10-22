@@ -21,12 +21,16 @@ const TravelSinglePage = () => {
         setTravel(data)
     }
 
+    const handleDelete = () => {
+        console.log("Delete")
+    }
+
     return ( 
         <div>
             <img src={travel?.image} alt="" />
             <h1>{travel?.name}</h1>
 
-            <button>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
         </div>
      );
 }
