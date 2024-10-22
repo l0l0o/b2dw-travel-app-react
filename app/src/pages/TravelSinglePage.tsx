@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { TravelType } from "../types/travel.type";
 
 const TravelSinglePage = () => {
     const { id } = useParams()
     const [travel, setTravel] = useState<TravelType>({})
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetchTravels()
@@ -21,8 +22,19 @@ const TravelSinglePage = () => {
         setTravel(data)
     }
 
-    const handleDelete = () => {
-        console.log("Delete")
+    const handleDelete = async () => {
+        try {
+            await fetch(`http://localhost:8000/travels/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            console.log('Success to delete')
+            navigate("/")
+        } catch (error) {
+            console.log('Success to delete' , error)   
+        }
     }
 
     return ( 
@@ -30,7 +42,12 @@ const TravelSinglePage = () => {
             <img src={travel?.image} alt="" />
             <h1>{travel?.name}</h1>
 
-            <button onClick={handleDelete}>Delete</button>
+            <button 
+                onClick={handleDelete}
+                className="bg-red-400 text-white text-xl px-4 py-2 hover:bg-red-500 transition-all"
+            >
+                Delete
+            </button>
         </div>
      );
 }

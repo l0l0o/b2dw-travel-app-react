@@ -88,10 +88,15 @@ app.delete('/travels/:id', (req: Request, res: Response) => {
   const { id } = req.params
 
   const index = travelList.findIndex(t => t.id === Number(id));
-  if (index !== -1) {
-    travelList.splice(index, 1); // Supprime l'élément à l'index trouvé
+  console.log('index :' , index)
+
+  if(index === -1){
+    res.status(404).send({message: `Error travel with id ${id} not found`})
   }
-  res.status(204)
+  
+  travelList.splice(index, 1); // Supprime l'élément à l'index trouvé
+  
+  res.status(204).send({message: "Success to delete"})
 })
 
 app.listen(port, () => {
