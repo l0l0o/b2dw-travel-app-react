@@ -40,7 +40,7 @@ app.get('/travels', (req: Request, res: Response) => {
 // Get One travel (app.get) (/travels/:id)
 app.get('/travels/:id', (req: Request, res: Response) => {
   // get param id
-  const { id } = req.params
+  const { id } = req.params 
   // Find travel into array with param id
   const travel = travelList.find(t => t.id === Number(id))
   console.log(travel)
