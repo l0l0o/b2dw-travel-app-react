@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { TravelType } from "../types/travel.type";
+import { TravelType } from "../types/travel.type.ts";
 
 type CardTravelProps = {
     travel: TravelType

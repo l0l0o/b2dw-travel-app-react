@@ -1,19 +1,18 @@
-import { useEffect, useState } from "react"
-import { TravelType } from "../types/travel.type"
+import { useEffect } from "react"
 import CardTravel from "./CardTravel"
+import { TravelType } from "../types/travel.type"
 
-const TravelList = () => {
-    const [travelList, setTravelList] = useState<TravelType[]>([])
+type TravelListType = {
+    fetchTravels: () => void,
+    travelList: TravelType[],
+}
+
+const TravelList = ({fetchTravels, travelList}: TravelListType) => {
 
     useEffect(() => {
         fetchTravels()
     }, [])
 
-    const fetchTravels = async () => {
-        const response = await fetch("http://localhost:5173/travels.json")
-        const data = await response.json()
-        setTravelList(data)
-    }
     
     return ( 
         <div className="grid grid-cols-3 gap-4">
