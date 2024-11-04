@@ -1,48 +1,50 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { TravelDTO } from "../types/travel.type.ts";
+import { TravelType } from "../types/travel.type";
+import { findOneById, remove } from "../services/travel.service";
 
 const TravelSinglePage = () => {
-    const { id } = useParams()
-    const [travel, setTravel] = useState<TravelDTO>({})
-    const navigate = useNavigate()
+  const { id } = useParams();
+  const [travel, setTravel] = useState<TravelType>({});
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        fetchTravels()
-    }, [])
+  useEffect(() => {
+    if (id) fetchTravel();
+  }, []);
 
-    const fetchTravels = async () => {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/travels/${id}`, {
-            method: "GET", // GET, POST, PUT, DELETE...
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        const data = await response.json()
-        setTravel(data)
+  const fetchTravel = async () => {
+    try {
+      const travel = await findOneById(id as string);
+      setTravel(travel);
+    } catch (error) {
+      console.log("Error to fetch travels", error);
     }
+  };
 
-    const handleDelete = async () => {
-        try {
-            await fetch(`${import.meta.env.VITE_API_URL}/travels/${id}`, {
-               method: "DELETE",
-               headers: {
-                   "Content-Type": "application/json"
-               }})
-            navigate("/")
-        } catch (error) {
-            console.log('Success to delete', error)
-        }
-        
+  const handleDelete = async () => {
+    if (!id) return;
+
+    try {
+      await remove(id);
+      navigate("/");
+    } catch (error) {
+      console.log("Success to delete", error);
     }
+  };
 
-    return ( 
-        <div>
-            <img src={travel?.image} alt="" />
-            <h1>{travel?.name}</h1>
-            <button onClick={handleDelete} className="p-2 bg-red-400 text-white rounded-sm hover:bg-red-500 transition-all">Delete</button>
-        </div>
-     );
-}
- 
+  return (
+    <div>
+      <img src={travel?.image} alt="" />
+      <h1>{travel?.name}</h1>
+
+      <button
+        onClick={handleDelete}
+        className="bg-red-400 text-white text-xl px-4 py-2 hover:bg-red-500 transition-all"
+      >
+        Delete
+      </button>
+    </div>
+  );
+};
+
 export default TravelSinglePage;

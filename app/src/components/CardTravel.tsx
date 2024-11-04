@@ -19,8 +19,8 @@ const CardTravel = ({ travel } : CardTravelProps) => {
                 </Link>
                 
                 <p>
-                    {travel.description.substring(0, 50)}
-                    {travel.description.length > 50 && "..."}
+                    {travel?.description?.substring(0, 50)}
+                    {travel?.description?.length > 50 && "..."}
                 </p>
             </div>
         </div>
