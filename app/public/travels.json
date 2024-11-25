@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Paris",
+        "title": "Paris",
         "city": "Paris",
         "country": "France",
         "image": "https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg",
@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "name": "New York City",
+        "title": "New York City",
         "city": "New York",
         "country": "USA",
         "image": "https://www.planetware.com/photos-large/USNY/new-york-city-empire-state-building.jpg",
@@ -17,7 +17,7 @@
     },
     {
         "id": 3,
-        "name": "Tokyo",
+        "title": "Tokyo",
         "city": "Tokyo",
         "country": "Japan",
         "image": "https://www.planetware.com/photos-large/JPN/japan-tokyo-mount-fuji.jpg",
@@ -25,7 +25,7 @@
     },
     {
         "id": 4,
-        "name": "Rome",
+        "title": "Rome",
         "city": "Rome",
         "country": "Italy",
         "image": "https://www.planetware.com/photos-large/I/italy-rome-colosseum.jpg",
@@ -33,7 +33,7 @@
     },
     {
         "id": 5,
-        "name": "Sydney",
+        "title": "Sydney",
         "city": "Sydney",
         "country": "Australia",
         "image": "https://www.planetware.com/photos-large/AUS/australia-sydney-opera-house.jpg",
@@ -41,7 +41,7 @@
     },
     {
         "id": 6,
-        "name": "London",
+        "title": "London",
         "city": "London",
         "country": "United Kingdom",
         "image": "https://www.planetware.com/photos-large/ENG/london-big-ben.jpg",
@@ -49,7 +49,7 @@
     },
     {
         "id": 7,
-        "name": "Rio de Janeiro",
+        "title": "Rio de Janeiro",
         "city": "Rio de Janeiro",
         "country": "Brazil",
         "image": "https://www.planetware.com/photos-large/BRA/brazil-rio-de-janeiro-christ-the-redeemer.jpg",
@@ -57,7 +57,7 @@
     },
     {
         "id": 8,
-        "name": "Cape Town",
+        "title": "Cape Town",
         "city": "Cape Town",
         "country": "South Africa",
         "image": "https://www.planetware.com/photos-large/SAF/south-africa-cape-town-table-mountain.jpg",
@@ -65,7 +65,7 @@
     },
     {
         "id": 9,
-        "name": "Bangkok",
+        "title": "Bangkok",
         "city": "Bangkok",
         "country": "Thailand",
         "image": "https://www.planetware.com/photos-large/THA/thailand-bangkok-grand-palace.jpg",
@@ -73,7 +73,7 @@
     },
     {
         "id": 10,
-        "name": "Dubai",
+        "title": "Dubai",
         "city": "Dubai",
         "country": "United Arab Emirates",
         "image": "https://www.planetware.com/photos-large/UAED/dubai-burj-khalifa.jpg",

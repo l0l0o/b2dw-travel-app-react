@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { TravelType } from "../types/travel.type";
-import { findOneById, remove } from "../services/travel.service";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { TravelDTO } from "../types/travel.type";
+import { findOneById, remove } from "../services/travel.services";
+import Button from "../components/Button";
 
 const TravelSinglePage = () => {
   const { id } = useParams();
-  const [travel, setTravel] = useState<TravelType>({});
-  const navigate = useNavigate();
+  const [credentials, setCredentials] = useState<TravelDTO>({});  const navigate = useNavigate();
 
   useEffect(() => {
     if (id) fetchTravel();
@@ -15,7 +15,7 @@ const TravelSinglePage = () => {
   const fetchTravel = async () => {
     try {
       const travel = await findOneById(id as string);
-      setTravel(travel);
+      setCredentials(travel);
     } catch (error) {
       console.log("Error to fetch travels", error);
     }
@@ -34,15 +34,16 @@ const TravelSinglePage = () => {
 
   return (
     <div>
-      <img src={travel?.image} alt="" />
-      <h1>{travel?.name}</h1>
+      <img src={credentials?.image} alt="" />
+      <h1>{credentials?.title}</h1>
+      <Link to={`/edit/${id}`}>Editer</Link>
 
-      <button
+      <Button
+        text="Delete"
+        variant="danger"
         onClick={handleDelete}
-        className="bg-red-400 text-white text-xl px-4 py-2 hover:bg-red-500 transition-all"
-      >
-        Delete
-      </button>
+      />
+
     </div>
   );
 };

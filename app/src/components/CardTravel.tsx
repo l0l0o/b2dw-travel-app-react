@@ -15,7 +15,7 @@ const CardTravel = ({ travel } : CardTravelProps) => {
             </div>
             <div className="p-6">
                 <Link to={`/${travel.id}`}>
-                    <h2 className="text-xl text-zinc-500 font-bold mt-2">{travel.name}</h2>
+                    <h2 className="text-xl text-zinc-500 font-bold mt-2">{travel.title}</h2>
                 </Link>
                 
                 <p>

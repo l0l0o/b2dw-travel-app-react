@@ -7,14 +7,37 @@ export const findAll = async () => {
   const data = await response.json();
   return data;
 };
-export const findOneByID = async (id: string) => {
+
+export const findOneById = async (id: string) => {
   const response = await fetch(`${API_URL}/travels/${id}`);
   const data = await response.json();
   return data;
 };
+
 export const create = async (travel: TravelDTO) => {
   const response = await fetch(`${API_URL}/travels`, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(travel),
+  });
+  const data = await response.json();
+  return data;
+};
+
+export const remove = async (id: string) => {
+  return await fetch(`${API_URL}/travels/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
+
+export const update = async (travel: TravelDTO) => {
+  const response = await fetch(`${API_URL}/travels`, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },

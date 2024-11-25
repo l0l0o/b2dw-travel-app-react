@@ -1,34 +1,8 @@
 import { useState } from "react";
-import FormAddTravel from "../components/FormAddTravel";
+import FormTravel from "../components/FormTravel";
 import TravelList from "../components/TravelList";
 import { TravelType } from "../types/travel.type";
-<<<<<<< HEAD
-import { findAll } from "../services/travel.services"
-
-const TravelListPage = () => {
-    const [travelList, setTravelList] = useState<TravelType[]>([])
-
-    const fetchTravels = async () => {
-        try {
-            const travel = await findAll()
-        }
-    }
-
-    return ( 
-        <div className="">
-            <h1 className="text-4xl text-red-400 mb-10">Share your travel</h1>
-            <FormAddTravel fetchTravels={fetchTravels} />
-            <TravelList 
-                fetchTravels={fetchTravels}
-                travelList={travelList}
-            />
-        </div>
-     );
-}
- 
-export default TravelListPage;
-=======
-import { findAll } from "../services/travel.service";
+import { findAll } from "../services/travel.services";
 
 const TravelListPage = () => {
   const [travelList, setTravelList] = useState<TravelType[]>([]);
@@ -46,7 +20,7 @@ const TravelListPage = () => {
     <div className="">
       <h1 className="text-4xl text-red-400 mb-10">Share your travel</h1>
 
-      <FormAddTravel fetchTravels={fetchTravels} />
+      <FormTravel fetchTravels={fetchTravels} />
 
       <TravelList travelList={travelList} fetchTravels={fetchTravels} />
     </div>
@@ -54,4 +28,3 @@ const TravelListPage = () => {
 };
 
 export default TravelListPage;
->>>>>>> fa883a3c17a6a177fa4aa4711d164d2be37c0274
